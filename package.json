@@ -1,0 +1,28 @@
+{
+  "name": "linan-elderly-care-api",
+  "version": "2.0.0",
+  "description": "邻安养老AI系统标准API版",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "init-db": "node scripts/init-db.js",
+    "test": "node scripts/test-all.js",
+    "test:smoke": "node tests/api-smoke.js",
+    "eval:live": "node scripts/run-live-evaluation.js",
+    "init-ai": "node scripts/init-ai.js",
+    "check": "node scripts/check.js",
+    "config:api": "node scripts/configure-key.js",
+    "test:model": "node tests/model-http.js"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "mysql2": "^3.14.3",
+    "pdfjs-dist": "5.6.205"
+  }
+}

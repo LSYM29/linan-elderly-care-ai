@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="邻安社区养老服务系统，提供养老服务预约、订单管理、紧急求助和社区公告等功能。"
+    />
+    <meta name="theme-color" content="#176b58" />
+    <title>邻安社区养老服务系统</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/assistant.css" />
+  </head>
+  <body>
+    <a id="skipLink" class="skip-link" href="#loginForm">跳到主要内容</a>
+    <section id="loginPage" class="login-page" aria-labelledby="systemTitle">
+      <div class="login-brand">
+        <div class="brand-mark">邻</div>
+        <h1 id="systemTitle">邻安社区养老服务系统</h1>
+        <p>让社区养老服务更贴心、更便捷、更安心</p>
+        <div class="brand-features">
+          <span>生活照料</span><span>健康关怀</span><span>便捷预约</span>
+        </div>
+      </div>
+      <div class="login-panel">
+        <form id="loginForm" class="login-card">
+          <p class="eyebrow">WELCOME</p>
+          <h2>欢迎登录</h2>
+          <p class="muted">请选择演示身份或输入您的账号</p>
+          <label for="username"
+            >用户名<input
+              id="username"
+              maxlength="50"
+              autocomplete="username"
+              placeholder="请输入用户名"
+              required
+          /></label>
+          <label for="password"
+            >密码<input
+              id="password"
+              type="password"
+              maxlength="72"
+              autocomplete="current-password"
+              placeholder="请输入密码"
+              required
+          /></label>
+          <button class="primary wide" type="submit">
+            <span>登录系统</span>
+          </button>
+          <div
+            id="loginMessage"
+            class="message"
+            role="alert"
+            aria-live="polite"
+          ></div>
+          <div class="quick-login">
+            <span>快速体验</span>
+            <button type="button" data-account="admin,admin123">管理员</button>
+            <button type="button" data-account="family,family123">家属</button>
+            <button type="button" data-account="caregiver,caregiver123">
+              护理人员
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="appPage" class="app-page hidden">
+      <div id="navBackdrop" class="nav-backdrop hidden"></div>
+      <aside class="sidebar" aria-label="系统导航">
+        <div class="logo">
+          <span>邻</span>
+          <div><b>邻安社区</b><small>养老服务系统</small></div>
+        </div>
+        <nav id="nav" aria-label="主要功能"></nav>
+        <div class="sidebar-help">
+          <b>社区服务热线</b><span>0571-8888 1234</span
+          ><small>服务时间 08:00—20:00</small>
+        </div>
+      </aside>
+      <main class="main">
+        <header>
+          <button
+            id="menuToggle"
+            class="menu-toggle"
+            type="button"
+            aria-label="打开菜单"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+          <div class="page-heading">
+            <h2 id="pageTitle">工作台</h2>
+            <p id="today"></p>
+          </div>
+          <div class="user-box">
+            <div class="avatar" id="avatar" aria-hidden="true">邻</div>
+            <div><b id="realName"></b><small id="roleName"></small></div>
+            <button id="logoutBtn" type="button">退出</button>
+          </div>
+        </header>
+        <div id="content" class="content" tabindex="-1"></div>
+      </main>
+    </section>
+
+    <div
+      id="modal"
+      class="modal hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-labelledby="modalTitle"
+    >
+      <div class="modal-card">
+        <button
+          class="modal-close"
+          type="button"
+          data-close
+          aria-label="关闭弹窗"
+        >
+          ×
+        </button>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="/js/assistant.js"></script>
+    <script src="/js/app.js"></script>
+  </body>
+</html>

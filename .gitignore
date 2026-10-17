@@ -1,0 +1,9 @@
+node_modules/
+.npm-cache/
+.env
+npm-debug.log*
+.runtime/
+
+# Local working documents
+*.docx
+~$*
