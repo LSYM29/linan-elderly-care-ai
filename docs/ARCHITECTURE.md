@@ -6,22 +6,17 @@
 
 ```mermaid
 flowchart TD
-    UI["网页：家属 / 护理人员 / 管理员"] --> AUTH["Express：Session 鉴权与角色校验"]
-    AUTH --> CHAT["助手编排：会话归属、检索上下文、工具循环"]
-    CHAT --> RAG["知识检索：地区与日期过滤、中文 BM25"]
-    RAG --> KB[("MySQL：ai_faqs / ai_documents / ai_chunks")]
-    CHAT <-->|"HTTPS：上下文、tool_calls、JSON 回答"| LLM["DeepSeek API"]
-    CHAT --> TOOLS["工具名称与参数校验、业务数据权限"]
-    TOOLS --> BIZ[("MySQL：用户、档案、服务、订单")]
-    TOOLS --> DRAFT[("MySQL：待确认预约草稿")]
-    CHAT --> CHECK["引用编号校验与回答结果整理"]
-    CHECK --> UI
-    UI -->|"用户点击确认"| CONFIRM["归属、修订号、有效期与价格复核"]
-    CONFIRM --> TX["订单事务：草稿行锁、订单与日志写入"]
-    TX --> BIZ
-    TX --> DRAFT
-    CHAT --> LOG[("MySQL：会话、运行轨迹与评测记录")]
-    AUTH -->|"管理员权限"| LOG
+    UI["网页<br/>家属 / 护理 / 管理员"] --> AUTH["Express 后端<br/>Session 与角色校验"]
+    AUTH -->|"对话接口"| CHAT["助手编排<br/>会话、上下文、工具循环"]
+    CHAT --> RAG["知识检索<br/>资料过滤与 BM25"]
+    CHAT <-->|"HTTPS / tool_calls"| LLM["DeepSeek API"]
+    CHAT --> TOOLS["业务工具<br/>参数与数据权限校验"]
+    CHAT --> RESULT["页面展示<br/>引用校验后的回答与卡片"]
+    RAG --> DB[("MySQL<br/>知识、业务、草稿与运行记录")]
+    TOOLS --> DB
+    AUTH -->|"用户点击确认"| CONFIRM["确认接口<br/>归属、版本、有效期与价格"]
+    CONFIRM --> TX["订单事务<br/>草稿行锁、订单与日志"]
+    TX --> DB
 ```
 
 ## 知识问答
