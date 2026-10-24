@@ -90,6 +90,8 @@ Windows 也可以双击 `启动系统.bat` 完成配置、依赖安装、数据�
 
 ## 架构与权限
 
+完整数据流图、工具权限和代码位置见 [系统架构](docs/ARCHITECTURE.md)。
+
 请求链路：网页 → Express 登录 Session → 资料检索与工具编排 → DeepSeek API → 后端校验与业务执行 → 页面展示。
 
 | 工具 | 用途 |
