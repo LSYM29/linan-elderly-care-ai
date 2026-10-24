@@ -2,6 +2,22 @@
   "name": "linan-elderly-care-api",
   "version": "2.0.0",
   "description": "邻安养老AI系统标准API版",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LSYM29/linan-elderly-care-ai.git"
+  },
+  "homepage": "https://github.com/LSYM29/linan-elderly-care-ai#readme",
+  "keywords": [
+    "nodejs",
+    "express",
+    "mysql",
+    "rag",
+    "bm25",
+    "llm",
+    "deepseek",
+    "function-calling",
+    "elderly-care"
+  ],
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
